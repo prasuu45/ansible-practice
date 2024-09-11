@@ -1,0 +1,11 @@
+- name: variables to print
+  hosts: web
+  become: yes
+  vars:
+    COURSE: "devops with aws"
+    DURATION: "120 hr"
+    TRINEER: "siva kumar"
+  
+  tasks:
+  - name: variables to print
+    msg: " i am learing {{ COURSE }} duration is  {{ DURATION}} {{ TRINEER}}"
