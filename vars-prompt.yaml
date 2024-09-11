@@ -1,0 +1,11 @@
+- name: variables  from prompt
+  hosts: web
+  become: yes
+  vars_prompt:
+    name: COURSE
+    prompt: please entre the name 
+  tasks:
+  - name: print the information
+    ansible.builtin.debug:
+     msg: "i am learing"
+    
