@@ -2,11 +2,19 @@
   hosts: local
   connection: local
   vars:
-   instances
-   - backend
-   - mysql
-   - fronted
+    instances
+    - backend
+    - mysql
+    - fronted
   tasks:
+  - name: install python boto3 botocore
+    ansible.builtin.pip:
+     name:
+     - boto3
+     - botocore
+     executable: pip3.9
+
+     
   - name: create ec2 instances
     amazon.aws.ec2_instance:
      name: "{{ item }}"
@@ -15,4 +23,4 @@
      security_group: sg-02c4c043a85fe8c60
      image_id: ami-09c813fb71547fc4f
     loop: "{{ instances }}"
-    
+    register: ec2_instanes
