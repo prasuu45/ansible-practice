@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-    instances
+    instances:
     - backend
     - mysql
     - fronted
@@ -14,7 +14,7 @@
      - botocore
      executable: pip3.9
 
-     
+
   - name: create ec2 instances
     amazon.aws.ec2_instance:
      name: "{{ item }}"
