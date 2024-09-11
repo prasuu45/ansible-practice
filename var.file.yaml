@@ -1,0 +1,11 @@
+- name: variables to print
+  hosts: web
+  become: yes
+  vars_file:
+  - vars.yaml
+    
+  
+  tasks:
+  - name: variables to print
+    ansible.builtin.debug:
+         msg: " i am learing {{ COURSE }} duration is  {{ DURATION}} {{ TRINEER}}"
